@@ -2,14 +2,14 @@ import { Document, Schema, model } from 'mongoose';
 import { USER_STATUS } from '../common/constants';
 
 export interface IProduct {
-  category: string;
-  name: string;
-  title: string;
-  image: string;
-  unitPrice: Number;
-  oldPrice: Number;
-  description: string;
-  status: string;
+  category?: string;
+  name?: string;
+  title?: string;
+  image?: string;
+  unitPrice?: Number;
+  oldPrice?: Number;
+  description?: string;
+  status?: string;
 }
 
 export interface IProductModel extends IProduct, Document {}

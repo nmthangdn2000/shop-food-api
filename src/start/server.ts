@@ -1,7 +1,7 @@
 import express, { Application } from 'express';
 import logger from 'morgan';
 import appConfig from '../configs/appConfig';
-import { RouteCongig } from '../configs/routeConfig';
+import { RouteConfig } from '../configs/routeConfig';
 import errorMiddleware from '../middlewares/errorHandler.middlewares';
 import path from 'path';
 
@@ -13,7 +13,7 @@ export class Server {
     express.json(),
     express.static(path.join(path.resolve(), 'public')),
   ];
-  private routerConfig = new RouteCongig();
+  private routerConfig = new RouteConfig();
 
   private initializeStatic() {
     this.middleware.forEach((m) => {

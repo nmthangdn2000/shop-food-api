@@ -6,18 +6,20 @@ import UserModel, { IUserModel, IUser } from '../models/user.model';
 export class AuthService {
   private userModel = UserModel;
 
-  async login() {}
+  async login() {
+    console.log('AuthService login');
+  }
 
-  async register(data: IUser) {
-    console.log('aaaaaa');
+  public async register(data: IUser) {
+    console.log('AuthService register');
 
-    const existingUser = await this.userModel.findOne({ email: data.email }).lean();
-    if (existingUser) throw new Error('Email already exists');
+    // const existingUser = await this.userModel.findOne({ email: data.email }).lean();
+    // if (existingUser) throw new Error('Email already exists');
 
-    data.password = hashPassword.sha512(`${data.email}${data.password}`);
-    data.status = USER_STATUS.ACTIVE;
+    // data.password = hashPassword.sha512(`${data.email}${data.password}`);
+    // data.status = USER_STATUS.ACTIVE;
 
-    const newUser = new this.userModel(data);
-    return newUser.save();
+    // const newUser = new this.userModel(data);
+    // return newUser.save();
   }
 }
