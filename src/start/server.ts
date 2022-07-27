@@ -6,20 +6,14 @@ import errorMiddleware from '../middlewares/errorHandler.middlewares';
 import path from 'path';
 
 export class Server {
-  private app: Application = express();
-  private middleware: Array<any>;
-  private routerConfig: RouteCongig;
-
-  constructor() {
-    this.app = express();
-    this.middleware = [
-      logger('dev'), // common, dev,
-      express.urlencoded({ extended: true }),
-      express.json(),
-      express.static(path.join(path.resolve(), 'public')),
-    ];
-    this.routerConfig = new RouteCongig();
-  }
+  private app = express();
+  private middleware = [
+    logger('dev'), // common, dev,
+    express.urlencoded({ extended: true }),
+    express.json(),
+    express.static(path.join(path.resolve(), 'public')),
+  ];
+  private routerConfig = new RouteCongig();
 
   private initializeStatic() {
     this.middleware.forEach((m) => {
